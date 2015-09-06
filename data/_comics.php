@@ -49,3 +49,19 @@ function get_comics($category_id = false)
     }
     return $result;
 }
+
+function search_comics($term) {
+    global $mysqli;
+    $result = false;
+    $table_comics = TB_COMICS;
+    $queryString = "SELECT * FROM $table_comics WHERE title LIKE '%$term%' OR description LIKE '%$term%'";
+    //var_dump($queryString);
+    $queryResult = $mysqli->query($queryString);
+    if ($queryResult && ($queryResult->num_rows > 0)) {
+        $result = array();
+        while ($row = $queryResult->fetch_assoc()) {
+            $result[] = $row;
+        }
+    }
+    return $result;
+}

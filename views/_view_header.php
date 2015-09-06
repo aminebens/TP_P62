@@ -1,4 +1,13 @@
-<!--TODO: Afficher le header des pages -->
+<?php
+define('NAV_SEARCH', 'nav_search');
+define('P_INPUT_SEARCH', 'input_search');
+
+if (array_key_exists(NAV_SEARCH, $_GET)) {
+    $comics = search_comics($_GET[P_INPUT_SEARCH]);
+}
+//var_dump($_GET[P_INPUT_SEARCH]);
+?>
+<!-- Affiche le header des pages -->
 <header>
     <nav id="menu" class="navbar navbar-default">
         <div class="container-fluid">
@@ -16,11 +25,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <!-- Search form -->
-                <form class="navbar-form navbar-left" role="search">
+                <form class="navbar-form navbar-left" role="search" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="<?php echo P_INPUT_SEARCH; ?>" class="form-control" placeholder="Search" />
                     </div>
-                    <button type="submit" class="btn btn-default">Rechercher</button>
+                    <input type="submit" name="<?php echo NAV_SEARCH; ?>" class="btn btn-default" value="Rechercher" />
                 </form>
                 <!-- Site main menu -->
                 <ul class="nav navbar-nav navbar-right">

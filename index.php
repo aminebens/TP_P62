@@ -30,7 +30,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </head>
 <body>
 <?php require_once('views/_view_header.php') ?>
-<!--TODO: Afficher menu categorie -->
+<!-- Affiche menu categorie -->
 <div id="cat_nav" class="col-md-1">
     <ul class="nav nav-pills nav-stacked">
         <?php
@@ -40,7 +40,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
         ?>
     </ul>
 </div>
-<!--TODO: Afficher la list des BDs -->
+<!-- Affiche la list des BDs -->
 <?php if ($comics) { ?>
 <div id="comics_list" class="row">
     <?php foreach ($comics as $comic) { ?>
