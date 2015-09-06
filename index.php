@@ -4,9 +4,15 @@ require_once 'data/_categories.php';
 require_once 'data/_comics.php';
 
 define('CAT_NAME', 'name');
+define('P_CAT_ID', 'category_id');
 
 $categories = get_categories();
-$comics = get_comics();
+
+if (array_key_exists(P_CAT_ID, $_GET)) {
+    $comics = get_comics($_GET[P_CAT_ID]);
+} else {
+    $comics = get_comics();
+}
 
 //var_dump($categories);
 //var_dump($comics);
@@ -29,12 +35,13 @@ $comics = get_comics();
     <ul class="nav nav-pills nav-stacked">
         <?php
         foreach ($categories as $category) {
-            echo '<li><a href="#">', $category['name'], '</a></li>';
+            echo '<li><a href="index.php?',P_CAT_ID, '=', $category[P_CAT_ID] ,'">', $category['name'], '</a></li>';
         }
         ?>
     </ul>
 </div>
 <!--TODO: Afficher la list des BDs -->
+<?php if ($comics) { ?>
 <div id="comics_list" class="row">
     <?php foreach ($comics as $comic) { ?>
         <div class="col-sm-6 col-md-4">
@@ -48,7 +55,7 @@ $comics = get_comics();
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <?php } } else { echo '<p>Aucun résultat.</p>'; } ?>
 </div>
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->

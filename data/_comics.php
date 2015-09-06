@@ -1,28 +1,43 @@
 <?php
 require_once '_dbConnect.php';
-/*
-function add_comic($name) {
+
+function add_comic($publisher_id, $author_id, $category_id, $title, $description,
+                   $isbn, $rating, $price, $cover_img_path, $preview_img_path, $publishing_date) {
     global $mysqli;
     $result = false;
-    $name = $mysqli->real_escape_string($name);
-    $table_categories = TB_CATEGORIES;
-    $queryString = "INSERT INTO $table_categories (name) VALUES ($name)";
+
+    $publisher_id = $mysqli->real_escape_string($publisher_id);
+    $author_id = $mysqli->real_escape_string($author_id);
+    $category_id = $mysqli->real_escape_string($category_id);
+    $title = $mysqli->real_escape_string($title);
+    $description = $mysqli->real_escape_string($description);
+    $isbn = $mysqli->real_escape_string($isbn);
+    $rating = $mysqli->real_escape_string($rating);
+    $price = $mysqli->real_escape_string($price);
+    $cover_img_path = $mysqli->real_escape_string($cover_img_path);
+    $preview_img_path = $mysqli->real_escape_string($preview_img_path);
+    $publishing_date = $mysqli->real_escape_string($publishing_date);
+
+    $table_comics = TB_COMICS;
+    $queryString = "INSERT INTO $table_comics ".
+        "(publisher_id, author_id, category_id, title, description, isbn, rating, price, cover_img_path, preview_img_path, publishing_date)".
+        " VALUES ($publisher_id, $author_id, $category_id, $title, $description, $isbn, $rating, $price, $cover_img_path, $preview_img_path, $publishing_date)";
     //var_dump($queryString);
-    $res = $mysqli->query($queryString);
-    if ($res) {
+    $queryResult = $mysqli->query($queryString);
+    if ($queryResult) {
         $result = $mysqli->insert_id;
     }
     return $result;
-}*/
+}
 
-function get_comics($comic_id = false)
+function get_comics($category_id = false)
 {
     global $mysqli;
     $result = false;
     $table_comics = TB_COMICS;
     $queryString = "SELECT * FROM $table_comics";
-    if (false !== $comic_id) {
-        $queryString .= " WHERE category_id = $comic_id";
+    if (false !== $category_id) {
+        $queryString .= " WHERE category_id = $category_id";
     }
     //var_dump($queryString);
     $queryResult = $mysqli->query($queryString);

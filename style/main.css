@@ -6,3 +6,11 @@ img {
 #cat_nav, #comics_list {
     display: inline-block;
 }
+
+#cat_nav {
+    width: 10%;
+}
+
+#comics_list {
+    width: 90%;
+}
