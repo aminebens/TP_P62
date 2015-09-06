@@ -1,0 +1,8 @@
+img {
+    width: 243px;
+    height: 200px;
+}
+
+#cat_nav, #comics_list {
+    display: inline-block;
+}
