@@ -36,7 +36,7 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="<?php echo PAGE_INDEX ?>">Acceuil <span class="sr-only">(current)</span></a></li>
                     <li><a href="#">Les BDs</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span> (0)</a></li>
+                    <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span> (0)</a></li>
                     <li><a href="#">Admin</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

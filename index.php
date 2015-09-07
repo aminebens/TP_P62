@@ -48,7 +48,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
             <div class="thumbnail">
                 <img src="<?php echo $comic[ITEM_COVER] ?>" alt="<?php echo $comic[ITEM_TITLE] ?>">
                 <div class="caption">
-                    <h3><?php echo $comic[ITEM_TITLE] ?></h3>
+                    <h5><?php echo $comic[ITEM_TITLE] ?></h5>
                     <p>Prix: <?php echo '$', $comic[ITEM_PRICE] ?></p>
                     <p><a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>" class="btn btn-primary" role="button">Detail</a>
                     <a href="#" class="btn btn-default" role="button">Ajouter au panier</a></p>
