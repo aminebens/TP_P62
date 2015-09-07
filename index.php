@@ -30,6 +30,13 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </head>
 <body>
 <?php require_once('views/_view_header.php') ?>
+<!-- Search form -->
+<form class="navbar-form navbar-rigth" role="search" action="<?php echo PAGE_INDEX ?>">
+    <div class="form-group">
+        <input type="text" name="<?php echo P_INPUT_SEARCH; ?>" class="form-control" placeholder="Search" />
+    </div>
+    <input type="submit" name="<?php echo NAV_SEARCH; ?>" class="btn btn-default" value="Rechercher" />
+</form>
 <!-- Affiche menu categorie -->
 <div id="cat_nav" class="col-md-1">
     <ul class="nav nav-pills nav-stacked">
@@ -51,7 +58,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
                     <h5><?php echo $comic[ITEM_TITLE] ?></h5>
                     <p>Prix: <?php echo '$', $comic[ITEM_PRICE] ?></p>
                     <p><a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>" class="btn btn-primary" role="button">Detail</a>
-                    <a href="#" class="btn btn-default" role="button">Ajouter au panier</a></p>
+                    <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span></a></p>
                 </div>
             </div>
         </div>
@@ -59,6 +66,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </div>
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <?php $mysqli->close(); ?>
 </body>

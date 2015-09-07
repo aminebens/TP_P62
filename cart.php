@@ -1,5 +1,5 @@
 <?php
-
+require_once ('data/_data.php');
 ?>
 
 <!DOCTYPE html>

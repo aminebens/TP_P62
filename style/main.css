@@ -27,3 +27,14 @@ img.thumbnail {
 span.glyphicon-shopping-cart {
     font-size: 1.2em;
 }
+
+div.col-sm-6.col-md-4{
+    text-align: center;
+
+}
+div.thumbnail{
+    border: none;
+    box-shadow: 0 0 0 0 ;
+    border-bottom: 1px solid rgb(232, 232, 232);
+}
+
