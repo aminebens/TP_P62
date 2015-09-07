@@ -1,7 +1,7 @@
 <?php
 require_once '_dbConnect.php';
 
-function add_author($name) {
+function add_genres($name) {
     global $mysqli;
     $result = false;
     $name = $mysqli->real_escape_string($name);
