@@ -1,6 +1,11 @@
-img {
-    width: 243px;
-    height: 200px;
+.thumbnail img {
+    width: 200px;
+    height: 300px;
+}
+
+img.thumbnail {
+    width: 400px;
+    height: 500px;
 }
 
 #cat_nav, #comics_list {
