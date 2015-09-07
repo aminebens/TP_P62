@@ -1,6 +1,7 @@
 <?php
 define('SITE_NAME', 'ComicsDB');
 define('IMG_PLACE_HOLDER', 'images/couv/place_holder.png');
+define('MAX_NOTE', 10);
 
 // comics TB columns
 define('ITEM_ID', 'comic_id');
@@ -16,3 +17,7 @@ define('ITEM_P_DATE', 'publishing_date');
 define('AUTHOR_ID', 'author_id');
 define('WRITER', 'Writer');
 define('ARTIST', 'Artist');
+
+// genres TB columns
+define('GENRE_ID', 'genre_id');
+define('GENRE_NAME', 'name');

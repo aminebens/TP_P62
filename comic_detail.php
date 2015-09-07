@@ -19,7 +19,7 @@ $authors = get_authors($item[AUTHOR_ID]);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo SITE_NAME ,' ' ,$item[ITEM_TITLE]; ?></title>
+    <title><?php echo $item[ITEM_TITLE] ?></title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -40,10 +40,10 @@ $authors = get_authors($item[AUTHOR_ID]);
         <p>ISBN: <?php echo $item[ITEM_ISBN]; ?></P>
         <p>Note: <?php echo $item[ITEM_RATING] ?>
             <?php if ($item[ITEM_RATING] >= 0) {
-                    for($i = 1; $i <= round($item[ITEM_RATING]); $i++) { ?>
+                    for($i = 1; $i <= $item[ITEM_RATING]; $i++) { ?>
             <span class="glyphicon glyphicon-star gold" aria-hidden="true"></span>
             <?php }
-                    for($i = round($item[ITEM_RATING]+1); $i <= 10; $i++) { ?>
+                    for($i = $item[ITEM_RATING]+1; $i <= 5; $i++) { ?>
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             <?php } } ?>
         </p>
