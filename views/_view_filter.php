@@ -16,11 +16,11 @@ if (array_key_exists(SUBMIT, $_GET)) {
 ?>
 <!--Genre && search form-->
 <form class="form-inline" action="<?php echo PAGE_INDEX ?>">
-    <div class="form-group">
+    <div class="form-group col-md-3">
         <input type="text" name="<?php echo P_INPUT_SEARCH; ?>" class="form-control" placeholder="Search" />
         <input type="submit" name="<?php echo NAV_SEARCH; ?>" class="btn btn-default" value="Rechercher" />
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-4">
         <label for="genres_list">Genres:</label>
         <select id="genres_list" name="<?php echo P_GENRES; ?>" class="form-control" >
             <option value="-1">choisir ...</option>
