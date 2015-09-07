@@ -40,10 +40,10 @@ $authors = get_authors($item[AUTHOR_ID]);
         <p>ISBN: <?php echo $item[ITEM_ISBN]; ?></P>
         <p>Note: <?php echo $item[ITEM_RATING] ?>
             <?php if ($item[ITEM_RATING] >= 0) {
-                    for($i = 1; $i <= $item[ITEM_RATING]; $i++) { ?>
+                    for($i = 1; $i <= round($item[ITEM_RATING]); $i++) { ?>
             <span class="glyphicon glyphicon-star gold" aria-hidden="true"></span>
             <?php }
-                    for($i = $item[ITEM_RATING]+1; $i <= 5; $i++) { ?>
+                    for($i = round($item[ITEM_RATING])+1; $i <= MAX_NOTE; $i++) { ?>
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             <?php } } ?>
         </p>
