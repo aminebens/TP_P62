@@ -1,6 +1,7 @@
 <?php
 require_once 'data/_data.php';
 require_once 'data/_comics.php';
+require_once 'data/_authors.php';
 
 if (array_key_exists(ITEM_ID, $_GET)) {
     $item = get_item_details($_GET[ITEM_ID]);
@@ -9,7 +10,10 @@ if (array_key_exists(ITEM_ID, $_GET)) {
 } else {
     $err_msg = 'Aucun resultat.';
 }
+
+$authors = get_authors($item[AUTHOR_ID]);
 //var_dump($item);
+//var_dump($authors);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +29,14 @@ if (array_key_exists(ITEM_ID, $_GET)) {
 <body>
 <?php require_once('views/_view_header.php') ?>
 <div>
-    <div class="col-md-3">
-        <img src="<?php echo $item[ITEM_COVER]; ?>" alt="<?php echo $item[ITEM_TITLE]; ?>" />
+    <div class="col-md-4">
+        <img class="thumbnail" src="<?php echo $item[ITEM_COVER]; ?>" alt="<?php echo $item[ITEM_TITLE]; ?>" />
     </div>
     <div class="col-md-6">
         <h3><?php echo $item[ITEM_TITLE]; ?></h3>
         <P>Date d'édition: <?php echo date('Y-m-d', strtotime($item[ITEM_P_DATE])) ?></p>
+        <p>Scénario: <?php echo $authors[0][WRITER]; ?></p>
+        <p>Dessin: <?php echo $authors[0][ARTIST]; ?></p>
         <p>ISBN: <?php echo $item[ITEM_ISBN]; ?></P>
         <p>Note: <?php echo $item[ITEM_RATING] ?>
             <?php if ($item[ITEM_RATING] >= 0) {
@@ -49,7 +55,6 @@ if (array_key_exists(ITEM_ID, $_GET)) {
             </button>
         </p>
     </div>
-    <div class="col-md-3"></div>
 </div>
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->
