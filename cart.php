@@ -1,5 +1,5 @@
 <?php
-
+require_once 'data/_data.php';
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
 
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<?php $mysqli->close(); ?>
 </body>
 </html>

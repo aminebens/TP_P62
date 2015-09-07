@@ -78,3 +78,20 @@ function search_comics($term) {
     }
     return $result;
 }
+
+function comics_genres($genre_id) {
+    global $mysqli;
+    $result = false;
+    $table_comics_genres = TB_COMICS_GENRES;
+    $table_comics = TB_COMICS;
+    $queryString = "SELECT comics.* FROM $table_comics INNER JOIN $table_comics_genres ON $table_comics.comic_id = $table_comics_genres.comic_id WHERE $table_comics_genres.genre_id = $genre_id;";
+    //var_dump($queryString);
+    $queryResult = $mysqli->query($queryString);
+    if ($queryResult && ($queryResult->num_rows > 0)) {
+        $result = array();
+        while ($row = $queryResult->fetch_assoc()) {
+            $result[] = $row;
+        }
+    }
+    return $result;
+}

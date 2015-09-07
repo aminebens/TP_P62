@@ -3,6 +3,10 @@ define('SITE_NAME', 'ComicsDB');
 define('IMG_PLACE_HOLDER', 'images/couv/place_holder.png');
 define('MAX_NOTE', 10);
 
+// Paramétres pour get
+define('PAGE_INDEX', 'index.php');
+define('P_GENRES', 'genres');
+
 // comics TB columns
 define('ITEM_ID', 'comic_id');
 define('ITEM_TITLE', 'title');

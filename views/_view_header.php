@@ -1,7 +1,6 @@
 <?php
 define('NAV_SEARCH', 'nav_search');
 define('P_INPUT_SEARCH', 'input_search');
-define('PAGE_INDEX', 'index.php');
 
 if (array_key_exists(NAV_SEARCH, $_GET)) {
     $comics = search_comics($_GET[P_INPUT_SEARCH]);

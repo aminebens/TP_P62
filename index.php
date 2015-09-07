@@ -2,17 +2,17 @@
 require_once 'data/_data.php';
 require_once 'data/_categories.php';
 require_once 'data/_comics.php';
-require_once 'data/_genres.php';
 
 define('CAT_NAME', 'name');
 define('P_CAT_ID', 'category_id');
 
 $categories = get_categories();
-$genres = get_genres();
 $active = '';
 
 if (array_key_exists(P_CAT_ID, $_GET)) {
     $comics = get_comics($_GET[P_CAT_ID]);
+} elseif (array_key_exists(P_GENRES, $_GET)) {
+    $comics = get_comics($_GET[P_GENRES]);
 } else {
     $comics = get_comics();
 }
@@ -52,8 +52,9 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
     </ul>
 </div>
 <!-- Affiche la list des BDs -->
-<?php if ($comics) { ?>
 <div id="comics_list" class="row">
+    <?php require_once('views/_view_filter.php'); ?>
+    <?php if ($comics) { ?>
     <?php foreach ($comics as $comic) { ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
@@ -70,6 +71,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </div>
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <?php $mysqli->close(); ?>
 </body>
