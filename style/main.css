@@ -14,3 +14,11 @@ img {
 #comics_list {
     width: 90%;
 }
+
+.gold {
+    color: gold;
+}
+
+span.glyphicon-shopping-cart {
+    font-size: 1.2em;
+}

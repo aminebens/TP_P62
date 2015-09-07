@@ -50,6 +50,19 @@ function get_comics($category_id = false)
     return $result;
 }
 
+function get_item_details($item_id) {
+    global $mysqli;
+    $result = false;
+    $table_comics = TB_COMICS;
+    $queryString = "SELECT * FROM $table_comics WHERE comic_id = $item_id";
+    //var_dump($queryString);
+    $queryResult = $mysqli->query($queryString);
+    if ($queryResult) {
+        $result = $queryResult->fetch_assoc();
+    }
+    return $result;
+}
+
 function search_comics($term) {
     global $mysqli;
     $result = false;

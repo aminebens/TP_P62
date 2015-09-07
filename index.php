@@ -46,11 +46,11 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
     <?php foreach ($comics as $comic) { ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img src="<?php echo $comic['cover_img_path'] ?>" alt="<?php echo $comic['title'] ?>">
+                <img src="<?php echo $comic[ITEM_COVER] ?>" alt="<?php echo $comic[ITEM_TITLE] ?>">
                 <div class="caption">
-                    <h3><?php echo $comic['title'] ?></h3>
-                    <p>Prix: <?php echo '$', $comic['price'] ?></p>
-                    <p><a href="#" class="btn btn-primary" role="button">Detail</a>
+                    <h3><?php echo $comic[ITEM_TITLE] ?></h3>
+                    <p>Prix: <?php echo '$', $comic[ITEM_PRICE] ?></p>
+                    <p><a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>" class="btn btn-primary" role="button">Detail</a>
                     <a href="#" class="btn btn-default" role="button">Ajouter au panier</a></p>
                 </div>
             </div>
