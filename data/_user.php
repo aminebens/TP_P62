@@ -19,10 +19,11 @@ function authenticate_user($email, $pass) {
 
     $table_users = TB_USERS;
 
-    $queryString = "SELECT * FROM $table_users WHERE email = $email AND pass = $pass";
+    $queryString = "SELECT * FROM $table_users WHERE email = '$email' AND pass = '$pass'";
+    var_dump($queryString);
     $queryResult = $mysqli->query($queryString);
 
-    if ($queryResult && $queryResult->num_rows == 1) {
+    if ($queryResult && $queryResult->num_rows > 0) {
         $result = $queryResult->fetch_assoc();
     }
 
