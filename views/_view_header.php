@@ -9,7 +9,6 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
 ?>
 <!-- Affiche le header des pages -->
 <header>
-
     <nav id="menu" class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,18 +26,12 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
                     <li><a href="#">Les BDs</a></li>
                 </ul>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-
                  <ul class="nav navbar-nav navbar-right">
-
                     <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span> (0)</a></li>
-                     <li><a href="#">Connexion</a></li>
-                     <li><a href="#">S'inscrire</a></li>
-
+                    <li><a href="#" data-toggle="modal" data-target="#<?php echo LOGIN; ?>" >Connexion</a></li>
+                    <li><a href="#">S'inscrire</a></li>
                  </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
