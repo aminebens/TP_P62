@@ -2,7 +2,7 @@
 
 ?>
 
-<p>Veuillez remplir les informations ci-dessous:</p>
+
 <!-- Modal -->
 <div class="modal fade" id="<?php echo SIGN_UP; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -11,6 +11,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Inscription</h4>
             </div>
+            <p>Veuillez remplir les informations ci-dessous:</p>
             <div class="modal-body">
                 <form name="form_login" method="post">
                     <div class="form-group">
