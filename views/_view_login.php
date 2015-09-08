@@ -6,12 +6,14 @@ require_once 'data/_user.php';
 
 $is_valid_user = false;
 
+
 if ( array_key_exists('submit', $_POST) ) {
     if ( isset($_POST[EMAIL]) && isset($_POST[PASS]) ) {
         $is_valid_user = authenticate_user($_POST[EMAIL], $_POST[PASS]);
         //var_dump($is_valid_user);
         if ($is_valid_user) {
             $_SESSION[FIRST_NAME] = $is_valid_user[FIRST_NAME];
+            $is_logged_in = true;
             header('Location: index.php');
         }
     }

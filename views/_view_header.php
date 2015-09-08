@@ -33,7 +33,8 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
                         <!-- Logged in -->
                          <li><a href="#">Bonjour, <?php echo $_SESSION[FIRST_NAME] ?></a></li>
                          <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span> (0)</a></li>
-                         <li><a href="#"><span class="glyphicon glyphicon-log-out lg" aria-hidden="true"></span></a></li>
+                         <li><a href="<?php $_SESSION = array(); session_destroy(); setcookie ('PHPSESSID', '', time()-3600, '/', '', 0, 0);
+                             echo $_SERVER['PHP_SELF'];?>"><span class="glyphicon glyphicon-log-out lg" aria-hidden="true"></span></li>
                      <?php } else { ?>
                          <!-- Logged out -->
                          <li><a href="#" data-toggle="modal" data-target="#<?php echo LOGIN ?>" >Connexion</a></li>
