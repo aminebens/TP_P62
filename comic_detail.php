@@ -47,7 +47,7 @@ $authors = get_authors($item[AUTHOR_ID]);
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             <?php } } ?>
         </p>
-        <p>synopsis: <?php echo $item[ITEM_DESC] ?></p>
+        <p>Synopsis: <?php echo $item[ITEM_DESC] ?></p>
         <p>Prix: <?php echo '$',$item[ITEM_PRICE] ?></p>
         <p>
             <button type="button" class="btn btn-default btn-md">
