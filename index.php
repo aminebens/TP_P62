@@ -33,7 +33,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </head>
 <body>
 <?php require_once('views/_view_header.php') ?>
-
+<?php require_once('views/_view_login.php'); ?>
 <!-- Affiche menu categorie -->
 <div id="cat_nav" class="col-md-1">
     <ul class="nav nav-pills nav-stacked">
@@ -72,9 +72,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </div>
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->
-
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <?php $mysqli->close(); ?>
 </body>

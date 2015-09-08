@@ -7,6 +7,11 @@ define('MAX_NOTE', 10);
 define('PAGE_INDEX', 'index.php');
 define('P_GENRES', 'genres');
 
+// Modal login
+define('LOGIN', 'login');
+define('EMAIL', 'email');
+define('PASS', 'pass');
+
 // comics TB columns
 define('ITEM_ID', 'comic_id');
 define('ITEM_TITLE', 'title');
