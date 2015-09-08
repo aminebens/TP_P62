@@ -18,7 +18,6 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 }
 
 //var_dump($categories);
-//var_dump($comics);
 //var_dump($genres);
 ?>
 <!DOCTYPE html>
