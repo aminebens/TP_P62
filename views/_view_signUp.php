@@ -1,8 +1,5 @@
 <?php
-var_dump($_POST);
-if(array_key_exists('submit', $_POST)){
-
-}
+// TODO: Preferable de mettre le sign up dans une page dedier que dans un modal.
 ?>
 
 

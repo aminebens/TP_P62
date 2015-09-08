@@ -1,5 +1,5 @@
 <?php
-// Constantes pour la connexion � la base de donn�es
+// Constantes pour la connexion a la base de donnees
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', 'dbrootpass');

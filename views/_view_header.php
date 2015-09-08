@@ -29,9 +29,14 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span> (0)</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#<?php echo LOGIN; ?>" >Connexion</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#<?php echo SIGN_UP; ?>">S'inscrire</a></li>
+                     <?php if (array_key_exists(FIRST_NAME, $_SESSION)) { ?>
+                         <li><a href="#">Bonjour, <?php echo $_SESSION[FIRST_NAME] ?></a></li>
+                         <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span> (0)</a></li>
+                         <li><a href="#"><span class="glyphicon glyphicon-log-out lg" aria-hidden="true"></span></a></li>
+                     <?php } else { ?>
+                         <li><a href="#" data-toggle="modal" data-target="#<?php echo LOGIN ?>" >Connexion</a></li>
+                         <li><a href="#" data-toggle="modal" data-target="#<?php echo SIGN_UP ?>">S'inscrire</a></li>
+                     <?php } ?>
                  </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

@@ -9,6 +9,7 @@ define('P_GENRES', 'genres');
 
 // Modal login
 define('LOGIN', 'login');
+define('LOGOUT', 'logout');
 define('EMAIL', 'email');
 define('PASS', 'pass');
 
