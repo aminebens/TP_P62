@@ -32,3 +32,16 @@ function add_user($address_id, $first_name, $last_name, $email, $pass, $phone, $
     return $result;
 
 }
+
+function get_user_email($user_email) {
+    global $mysqli;
+    $result = false;
+    $table_users = TB_USERS;
+    $queryString = "SELECT * FROM $table_users WHERE email = $user_email";
+    //var_dump($queryString);
+    $queryResult = $mysqli->query($queryString);
+    if ($queryResult) {
+        $result = $queryResult->fetch_assoc();
+    }
+    return result;
+}
