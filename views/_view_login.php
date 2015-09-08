@@ -1,5 +1,22 @@
 <?php
-    // Initialise code here
+// TODO: Check user login
+require_once 'data/_user.php';
+//var_dump($_POST);
+//var_dump($_SESSION);
+
+$is_valid_user = false;
+
+if ( array_key_exists('submit', $_POST) ) {
+    if ( isset($_POST[EMAIL]) && isset($_POST[PASS]) ) {
+        $is_valid_user = authenticate_user($_POST[EMAIL], $_POST[PASS]);
+        //var_dump($is_valid_user);
+        if ($is_valid_user) {
+            $_SESSION[FIRST_NAME] = $is_valid_user[FIRST_NAME];
+            header('Location: index.php');
+        }
+    }
+}
+
 ?>
 <!-- Modal -->
 <div class="modal fade" id="<?php echo LOGIN; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -13,7 +30,7 @@
                 <form name="form_login" method="post">
                     <div class="form-group">
                         <label for="<?php echo EMAIL; ?>">Email:</label>
-                        <input id="<?php echo LOGIN; ?>" name="<?php echo LOGIN; ?>" type="text" placeholder="Entrer votre email" class="form-control" />
+                        <input id="<?php echo EMAIL; ?>" name="<?php echo EMAIL; ?>" type="text" placeholder="Entrer votre email" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label for="<?php echo PASS; ?>">Mot de passe:</label>
