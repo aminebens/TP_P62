@@ -32,7 +32,6 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
     <link rel="stylesheet" href="style/main.css" />
 </head>
 <body>
-<div class="container">
 <?php require_once('views/_view_header.php') ?>
 <?php require_once('views/_view_login.php'); ?>
 <!-- Affiche menu categorie -->
@@ -72,7 +71,6 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
     <?php } } else { echo '<p>Aucun résultat.</p>'; } ?>
 </div>
 <?php require_once('views/_view_footer.php') ?>
-</div>
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
