@@ -1,6 +1,6 @@
 <?php
-// Constantes pour la connexion à la base de données
-define('DB_HOST', '127.0.0.1');
+// Constantes pour la connexion ï¿½ la base de donnï¿½es
+define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', 'dbrootpass');
 define('DB_NAME', 'comicsdb');

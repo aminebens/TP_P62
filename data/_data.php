@@ -12,6 +12,18 @@ define('LOGIN', 'login');
 define('EMAIL', 'email');
 define('PASS', 'pass');
 
+//Modal sign
+define('SIGN_UP' , 'sign_up');
+define('FIRST_NAME', 'first_name');
+define('LAST_NAME', 'last_name');
+// ** email and password already defined in "modal login" **
+define('PASS_CONFIRM', 'pass_confirm');
+define('PHONE', 'phone');
+define('GENDER', 'gender');
+define('MALE', 'male');
+define('FEMALE', 'female');
+define('DOB', 'date_birth');
+
 // comics TB columns
 define('ITEM_ID', 'comic_id');
 define('ITEM_TITLE', 'title');
