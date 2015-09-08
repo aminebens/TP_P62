@@ -1,7 +1,6 @@
 <?php
-
+// TODO: Preferable de mettre le sign up dans une page dedier que dans un modal.
 ?>
-
 
 <!-- Modal -->
 <div class="modal fade" id="<?php echo SIGN_UP; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
