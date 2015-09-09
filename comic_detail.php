@@ -3,6 +3,8 @@ require_once 'data/_data.php';
 require_once 'data/_comics.php';
 require_once 'data/_authors.php';
 
+session_start();
+
 if (array_key_exists(ITEM_ID, $_GET)) {
     $item = get_item_details($_GET[ITEM_ID]);
 } else if (!$item) {
