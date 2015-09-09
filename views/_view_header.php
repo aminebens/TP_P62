@@ -28,6 +28,8 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <?php if (!array_key_exists(FIRST_NAME, $_SESSION)) { ?>
+                    <?php require_once('views/_view_login.php'); } ?>
                  <ul class="nav navbar-nav navbar-right">
                      <?php if (array_key_exists(FIRST_NAME, $_SESSION)) { ?>
                         <!-- Logged in -->
@@ -36,7 +38,6 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
                          <li><a href="logout.php"><span class="glyphicon glyphicon-log-out lg" aria-hidden="true"></span></li>
                      <?php } else { ?>
                          <!-- Logged out -->
-                         <li><a href="#" data-toggle="modal" data-target="#<?php echo LOGIN ?>" >Connexion</a></li>
                          <li><a href="#" data-toggle="modal" data-target="#<?php echo SIGN_UP ?>">S'inscrire</a></li>
                      <?php } ?>
                  </ul>

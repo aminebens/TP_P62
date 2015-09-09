@@ -5,45 +5,49 @@ require_once 'data/_user.php';
 //var_dump($_SESSION);
 
 $is_valid_user = false;
+/*$authenticate = '';
+$errMsg = '';
 
+// Validation de formalaire de connexion
+$validation_login = array(
+    'email' => array('isValid' => false, 'value' => null, 'errMsg' => ''),
+    'pass' => array('isValid' => false, 'value' => null, 'errMsg' => ''),
+);
 
-if ( array_key_exists('submit', $_POST) ) {
+// Validation de l'email
+$validation_login[EMAIL]['value'] = filter_input(INPUT_POST, EMAIL, FILTER_SANITIZE_EMAIL);
+$validation_login[EMAIL]['isValid'] = (false !== filter_var($validation_login[EMAIL]['value'], FILTER_VALIDATE_EMAIL));
+
+// Validation du mot de pass
+$validation_login[PASS]['value'] = filter_input(INPUT_POST, PASS, FILTER_SANITIZE_STRING);
+$validation_login[PASS]['isValid'] = (1 === preg_match('/\w{5,}/', $validation_login[PASS]['value']));
+
+$isFormValid = true;
+foreach ($validation_login as $field) {
+    if (! $field['isValid']) {
+        $isFormValid = false;
+        break;
+    }
+}*/
+
+if ( array_key_exists('submit_login', $_POST) ) {
     if ( isset($_POST[EMAIL]) && isset($_POST[PASS]) ) {
         $is_valid_user = authenticate_user($_POST[EMAIL], $_POST[PASS]);
         //var_dump($is_valid_user);
         if ($is_valid_user) {
             $_SESSION[FIRST_NAME] = $is_valid_user[FIRST_NAME];
-            $is_logged_in = true;
             header('Location: index.php');
         }
     }
 }
-
 ?>
-<!-- Modal -->
-<div class="modal fade" id="<?php echo LOGIN; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Connexion</h4>
-            </div>
-            <div class="modal-body">
-                <form name="form_login" method="post">
-                    <div class="form-group">
-                        <label for="<?php echo EMAIL; ?>">Email:</label>
-                        <input id="<?php echo EMAIL; ?>" name="<?php echo EMAIL; ?>" type="text" placeholder="Entrer votre email" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label for="<?php echo PASS; ?>">Mot de passe:</label>
-                        <input id="<?php echo PASS; ?>" name="<?php echo PASS; ?>" type="password" placeholder="Entrer votre mot de passe" class="form-control" />
-                    </div>
-                    <input type="submit" name="submit" value="Se connecter" class="btn btn-primary" />
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-            </div>
-        </div>
+<!-- Formulaire de  Login -->
+<form class="navbar-form navbar-right" method="post">
+    <div class="form-group">
+        <input type="text" name="<?php echo EMAIL ?>" placeholder="Email" class="form-control">
     </div>
-</div>
+    <div class="form-group">
+        <input type="password" name="<?php echo PASS ?>" placeholder="Password" class="form-control">
+    </div>
+    <button type="submit" name="submit_login" class="btn btn-success">Connexion</button>
+</form>
