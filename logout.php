@@ -19,7 +19,7 @@ setcookie ('PHPSESSID', '', time()-3600);
 <body>
 <?php require_once('views/_view_header.php') ?>
 <?php require_once('views/_view_login.php'); ?>
-<?php require_once ('views/_view_signUp.php');?>
+
 <h1>Logged out!</h1>
 <p><a href="index.php">Acceuil</a></p>
 <?php require_once('views/_view_footer.php') ?>
