@@ -37,7 +37,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </head>
 <body>
 <?php require_once('views/_view_header.php') ?>
-<?php require_once ('views/_view_signUp.php');?>
+
 <!-- Affiche menu categorie -->
 <div id="cat_nav" class="col-md-1">
     <ul class="nav nav-pills nav-stacked">

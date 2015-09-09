@@ -39,5 +39,11 @@ div.thumbnail{
     border-bottom: 1px solid rgb(232, 232, 232);
 }
 
-
+div.center{
+    width:50%;
+    margin:0 auto;
+}
+div.bootcrashs_streetnum{
+    width: 15%;
+}
 
