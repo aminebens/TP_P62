@@ -42,7 +42,7 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
 </form>
 <?php } else { ?>
 <ul class="nav navbar-nav navbar-right">
-    <li><a href="#" data-toggle="modal" data-target="#<?php echo SIGN_UP ?>">S'inscrire</a></li>
+    <li><a href="signup.php">S'inscrire</a></li>
 </ul>
 <form class="navbar-form navbar-right" method="post">
     <div class="form-group">
