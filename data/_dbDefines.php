@@ -2,7 +2,7 @@
 // Constantes pour la connexion a la base de donnees
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'dbrootpass');
+define('DB_PASS', '');
 define('DB_NAME', 'comicsdb');
 define('DB_PORT', 3306);
 
