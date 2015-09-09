@@ -4,7 +4,7 @@ require_once 'data/_categories.php';
 require_once 'data/_comics.php';
 require_once 'utils/_login.php';
 
-session_start();
+
 
 define('CAT_NAME', 'name');
 define('P_CAT_ID', 'category_id');
@@ -22,6 +22,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 
 //var_dump($categories);
 //var_dump($genres);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +67,8 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
                     <h5><?php echo $comic[ITEM_TITLE] ?></h5>
                     <p>Prix: <?php echo '$', $comic[ITEM_PRICE] ?></p>
                     <p><a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>" class="btn btn-primary" role="button">Detail</a>
-                    <a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span></a></p>
+                    <a href="?<?php echo 'action'.'='.ADD_CART.'&'.ITEM_ID.'='.$comic[ITEM_ID] ?>"
+                       class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span></a></p>
                 </div>
             </div>
         </div>

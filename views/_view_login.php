@@ -31,7 +31,7 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
 ?>
 <!-- Formulaire de  Login -->
 <ul class="nav navbar-nav navbar-right">
-    <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg"></span> (0)</a></li>
+    <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg"></span> (<?php echo $_SESSION[SESS_CART_TOTAL]; ?>)</a></li>
 </ul>
 
 <?php if(array_key_exists(FIRST_NAME, $_SESSION)) { ?>

@@ -1,5 +1,9 @@
 <?php
 require_once 'data/_data.php';
+
+session_start();
+
+
 ?>
 
 <!DOCTYPE html>

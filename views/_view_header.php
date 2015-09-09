@@ -6,6 +6,19 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
     $comics = search_comics($_GET[P_INPUT_SEARCH]);
 }
 //var_dump($_GET[P_INPUT_SEARCH]);
+// Cart
+define('ADD_CART' , 'add');
+define('SESS_CART_TOTAL', 'sess_cart_total');
+session_start();
+if ( !array_key_exists(SESS_CART_TOTAL, $_SESSION) ) {
+    $_SESSION[SESS_CART_TOTAL] = 0;
+}
+
+if ( array_key_exists('action', $_GET) ) {
+    if ( ADD_CART == $_GET['action'] ) {
+        $_SESSION[SESS_CART_TOTAL]++;
+    }
+}
 ?>
 <!-- Affiche le header des pages -->
 <header>
