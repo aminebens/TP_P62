@@ -81,8 +81,15 @@ span.titre {
 .qty {
     text-align: right;
 }
-#cart button.clearCart{
+#cart button.red{
     color: #d9534f
+}
+#cart button.green{
+    color: #5cb85c;
+}
+
+#cart_detail {
+    padding-left: 0;
 }
 
 /* form inscription*/
