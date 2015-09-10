@@ -86,13 +86,43 @@ span.titre {
 }
 
 /* form inscription*/
-div.center{
-    width : 50%;
-    margin: 0 auto;
+div.juxtapose{
+    width : 25%;
+    display: inline-block;
+    vertical-align: top;
+}
+div.juxtapose:first-child{
+    margin-right:200px;
 }
 
+div.center{
+    text-align: center;
+    margin-top : 50px;
+}
+
+div.center div.juxtapose{
+    text-align: left;
+}
+div.juxtapose h4 {
+    margin-bottom:35px;
+}
+
+div.juxtapose div.form-group label:after{
+    content: "*";
+}
+
+div.juxtapose div.form-group p{
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+}
 .err_msg{
     background-color: #f2dede;
     border-color: #eed3d7;
 }
+.val_msg{
+    border-color: #5cb85c;
+}
+
+
 
