@@ -2,9 +2,10 @@
 require_once 'data/_data.php';
 require_once 'data/_categories.php';
 require_once 'data/_comics.php';
-require_once 'utils/_login.php';
+
 
 session_start();
+
 
 define('CAT_NAME', 'name');
 define('P_CAT_ID', 'category_id');
@@ -48,7 +49,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
                     $active = 'active';
                 }
             }
-            echo '<li class="', $active ,'"><a href="index.php?',P_CAT_ID, '=', $category[P_CAT_ID] ,'">', $category['name'], '</a></li>';
+            echo '<li class="', $active, '"><a href="index.php?', P_CAT_ID, '=', $category[P_CAT_ID], '">', $category['name'], '</a></li>';
             $active = '';
         }
         ?>
