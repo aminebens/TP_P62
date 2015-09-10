@@ -48,3 +48,6 @@ define('ARTIST', 'Artist');
 // genres TB columns
 define('GENRE_ID', 'genre_id');
 define('GENRE_NAME', 'name');
+
+// Shopping cart
+define('ADD_TO_CART' , 'add');

@@ -39,6 +39,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 
 <!-- Affiche menu categorie -->
 <div id="cat_nav" class="col-md-1">
+    <h4>Catégories</h4>
     <ul class="nav nav-pills nav-stacked">
         <?php
         foreach ($categories as $category) {

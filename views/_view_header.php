@@ -33,5 +33,3 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
         </div><!-- /.container-fluid -->
     </nav>
 </header>
-
-
