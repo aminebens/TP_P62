@@ -76,13 +76,37 @@ span.titre {
 }
 
 /* form inscription*/
+div.juxtapose{
+    width : 25%;
+    display: inline-block;
+    vertical-align: top;
+}
+div.juxtapose:first-child{
+    margin-right:200px;
+}
+
 div.center{
-    width : 50%;
-    margin: 0 auto;
+    text-align: center;
+    margin-top : 50px;
+}
+
+div.center div.juxtapose{
+    text-align: left;
+}
+div.juxtapose h4 {
+    margin-bottom:35px;
+}
+
+div.juxtapose div.form-group label:after{
+    content: "*";
 }
 
 .err_msg{
     background-color: #f2dede;
     border-color: #eed3d7;
 }
+.val_msg{
+    border-color: #5cb85c;
+}
+
 

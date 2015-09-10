@@ -1,5 +1,5 @@
 <?php
-require_once ' _dbConnect.php';
+require_once '_dbConnect.php';
 
 function add_address($street_num, $street, $city, $province, $postal_code) {
     global $mysqli;
@@ -15,11 +15,12 @@ function add_address($street_num, $street, $city, $province, $postal_code) {
     $table_addresses = TB_ADDRESSES;
     $queryString = "INSERT INTO $table_addresses ".
         "(street_num, street, city, province, postal_code)".
-        " VALUES ($street_num, $street, $city, $province, $postal_code)";
+        " VALUES ($street_num, '$street', '$city', '$province', '$postal_code')";
     //var_dump($queryString);
     $queryResult = $mysqli->query($queryString);
     if ($queryResult) {
         $result = $mysqli->insert_id;
     }
+    //var_dump($result);
     return $result;
 }
