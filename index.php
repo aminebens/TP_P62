@@ -36,8 +36,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 </head>
 <body>
 <?php require_once('views/_view_header.php') ?>
-<?php //require_once('views/_view_login.php'); ?>
-<?php require_once ('views/_view_signUp.php');?>
+
 <!-- Affiche menu categorie -->
 <div id="cat_nav" class="col-md-1">
     <ul class="nav nav-pills nav-stacked">
@@ -57,13 +56,12 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 <?php require_once('views/_view_filter.php'); ?>
 <!-- Affiche la list des BDs -->
 <div id="comics_list" class="row">
-
 <?php if ($comics) { ?>
 <div id="comics_list" class="row">
     <?php foreach ($comics as $comic) { ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img src="<?php echo $comic[ITEM_COVER] ?>" alt="<?php echo $comic[ITEM_TITLE] ?>">
+                <img src="<?php echo $comic[ITEM_COVER] ?>" alt="<?php echo $comic[ITEM_TITLE] ?>" onerror="this.src='images/couv/place_holder.png'" />
                 <div class="caption">
                     <h5><?php echo $comic[ITEM_TITLE] ?></h5>
                     <p>Prix: <?php echo '$', $comic[ITEM_PRICE] ?></p>
@@ -78,6 +76,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 <!-- Latest compiled and minified JavaScript -->
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 <?php $mysqli->close(); ?>
 </body>
 </html>

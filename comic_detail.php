@@ -32,7 +32,7 @@ $authors = get_authors($item[AUTHOR_ID]);
 <?php require_once('views/_view_header.php') ?>
 <div>
     <div class="col-md-4">
-        <img class="thumbnail" src="<?php echo $item[ITEM_COVER]; ?>" alt="<?php echo $item[ITEM_TITLE]; ?>" />
+        <img class="thumbnail" src="<?php echo $item[ITEM_COVER]; ?>" alt="<?php echo $item[ITEM_TITLE]; ?>" onerror="this.src='/images/couv/place_holder.png';" />
     </div>
     <div class="col-md-6">
         <h3><?php echo $item[ITEM_TITLE]; ?></h3>

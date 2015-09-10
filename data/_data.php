@@ -24,6 +24,11 @@ define('GENDER', 'gender');
 define('MALE', 'male');
 define('FEMALE', 'female');
 define('DOB', 'date_birth');
+define('STREET_NUM','street_num');
+define('STREET','street');
+define('CITY','city');
+define('PROVINCE','province');
+define('ZIP','postal_code');
 
 // comics TB columns
 define('ITEM_ID', 'comic_id');
