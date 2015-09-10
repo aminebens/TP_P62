@@ -53,8 +53,8 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
     <div class="form-group">
         <input type="password" name="<?php echo PASS ?>" placeholder="Password" class="form-control">
     </div>
-    <button type="submit" name="submit_login" class="btn btn-success js-popover"
-            data-container="body" data-toggle="popover" data-placement="bottom" data-content="<?php echo $login_message; ?>"
-            data-original-title="" title="">Connexion</button>
+    <button id="login_btn" type="submit" name="submit_login" class="btn btn-success"
+            data-toggle="tooltip" data-placement="bottom" title="Hooray!" >Connexion</button>
+    <p class="red" style="margin: 0;"><?php echo (!array_key_exists(FIRST_NAME, $_SESSION)) ? $login_message : ''; ?></p>
 </form>
 <?php } ?>

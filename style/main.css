@@ -81,7 +81,7 @@ span.titre {
 .qty {
     text-align: right;
 }
-#cart button.red{
+#cart button.red, .red{
     color: #d9534f;
 }
 #cart button.green{
