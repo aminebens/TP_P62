@@ -1,8 +1,9 @@
 <?php
+session_start();
 require_once 'data/_data.php';
 require_once 'data/_signup.php';
 
-
+//var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
