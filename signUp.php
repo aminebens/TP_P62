@@ -43,6 +43,7 @@ session_start();
             <div class="form-group">
                 <label for="<?php echo PASS; ?>">Mot de passe:</label>
                 <input id="<?php echo PASS; ?>" name="<?php echo PASS; ?>" type="password" maxlength="40" placeholder="Entrer votre mot de passe" class="form-control <?php echo $validation_signup[PASS][ERR_MSG] ?>" />
+            <?php echo (array_key_exists(SUBMIT, $_POST) && !$validation_signup[PASS][IS_VALID])? '<p>Le mot de passe doit contenir au moins 6 caracteres!</p>' : '' ?>
             </div>
             <div class="form-group">
                 <label for="<?php echo PASS_CONFIRM; ?>">Confirmez mot de passe:</label>
@@ -53,7 +54,7 @@ session_start();
             <h4>VOTRE ADRESSE:</h4>
             <div class="form-group">
                 <label for="<?php echo STREET_NUM; ?>">Numero:</label>
-                <input id="<?php echo STREET_NUM; ?>" name="<?php echo STREET_NUM; ?>" type="text" maxlength="3" placeholder="<?php echo (array_key_exists(STREET_NUM, $_POST))? $_POST[STREET_NUM] : 'No de rue' ?>" class="form-control <?php echo $validation_signup[STREET_NUM][ERR_MSG] ?>" />
+                <input id="<?php echo STREET_NUM; ?>" name="<?php echo STREET_NUM; ?>" type="text" maxlength="6" placeholder="<?php echo (array_key_exists(STREET_NUM, $_POST))? $_POST[STREET_NUM] : 'No de rue' ?>" class="form-control <?php echo $validation_signup[STREET_NUM][ERR_MSG] ?>" />
             </div>
             <div class="form-group">
                 <label for="<?php echo STREET; ?>">Rue:</label>

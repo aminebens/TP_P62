@@ -101,6 +101,11 @@ div.juxtapose div.form-group label:after{
     content: "*";
 }
 
+div.juxtapose div.form-group p{
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+}
 .err_msg{
     background-color: #f2dede;
     border-color: #eed3d7;
@@ -108,5 +113,6 @@ div.juxtapose div.form-group label:after{
 .val_msg{
     border-color: #5cb85c;
 }
+
 
 

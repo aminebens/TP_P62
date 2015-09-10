@@ -60,6 +60,8 @@ if (array_key_exists(SUBMIT, $_POST)) {
     if (($pass === $validation_signup[PASS_CONFIRM][VALUE]) && (1 === preg_match('/\w{6,}/', $pass))) {
         $validation_signup[PASS][IS_VALID] = true;
         $validation_signup[PASS_CONFIRM][IS_VALID] = true;
+        $validation_signup[PASS][ERR_MSG] = VAL_MSG;
+        $validation_signup[PASS_CONFIRM][ERR_MSG] = VAL_MSG;
     } else {
         $validation_signup[PASS][ERR_MSG] = ERR_MSG;
         $validation_signup[PASS_CONFIRM][ERR_MSG] = ERR_MSG;
@@ -69,7 +71,7 @@ if (array_key_exists(SUBMIT, $_POST)) {
 // Validation du numero de rue
     $validation_signup[STREET_NUM][VALUE] = trim(filter_input(INPUT_POST, STREET_NUM, FILTER_SANITIZE_STRING));
     $street_num =  $validation_signup[STREET_NUM][VALUE];
-    $validation_signup[STREET_NUM][IS_VALID] = (1 === preg_match('/[0-9]{1,3}/', $street_num ));
+    $validation_signup[STREET_NUM][IS_VALID] = (1 === preg_match('/[0-9]{1,6}/', $street_num ));
     $validation_signup[STREET_NUM][ERR_MSG] = ($validation_signup[STREET_NUM][IS_VALID]) ? VAL_MSG : ERR_MSG;
 
 // Validation de la rue
@@ -141,5 +143,5 @@ var_dump($validation_signup);
 echo '******************************';
 var_dump($_POST);*/
 
-
+var_dump($_POST);
 
