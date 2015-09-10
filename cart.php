@@ -11,6 +11,19 @@ $msg = '';
 $isCartEmpty = false;
 $cart = array();
 
+function iterate_session($session, $id) {
+    $cart = $session;
+    foreach ($cart as $k => $items) {
+        foreach ($items as $item_id => $quantity) {
+            if ($id == $item_id) {
+                $old_qty = $quantity;
+                return array($k, $old_qty);
+            }
+        }
+    }
+    return false;
+}
+
 // Veriefie si une session du panier exist, sinon en crée une
 if ( !array_key_exists(SESS_CART, $_SESSION) ) {
     $_SESSION[SESS_CART] = array();
@@ -23,6 +36,11 @@ if ( array_key_exists('addToCart', $_GET) ) {
 
     if (array_key_exists('item_qty', $_GET)) {
         $item_qty = $_GET['item_qty'];
+        if (iterate_session($_SESSION[SESS_CART], $item_id, $item_qty) !== false) {
+            $data = iterate_session($_SESSION[SESS_CART], $item_id);
+            unset($_SESSION[SESS_CART][$data[0]]);
+            $item_qty += $data[1];
+        }
         $cart[$item_id] = $item_qty;
         array_push($_SESSION[SESS_CART], $cart);
         header('Location: cart.php');
@@ -85,7 +103,7 @@ if ( $_SESSION[SESS_CART] == null || array_key_exists('clearCart', $_GET) ) {
                     $authors = get_authors($item[AUTHOR_ID]);
                     echo '<td><img src="', $item[ITEM_COVER], '" alt="', $item[ITEM_TITLE] ,'"/></td>';
                     echo '<td><a href="comic_detail.php?',ITEM_ID,'=',$item[ITEM_ID], '"><span class="titre">', $item[ITEM_TITLE], '</span></a>',
-                    ' de ', $authors[0][WRITER], '<div>', 'publisher', '</div></td>';
+                    ' de ', $authors[0][WRITER], '<div>', 'TODO: publisher', '</div></td>';
                     echo '<td>', $item[ITEM_PRICE], '</td>';
                     echo '<td class="qty">', $qty, '</td>';
                     $nb_articles += $qty;
@@ -99,7 +117,9 @@ if ( $_SESSION[SESS_CART] == null || array_key_exists('clearCart', $_GET) ) {
     </div>
     <div class="col-md-2">
         <form class="form-inline" action="cart.php">
-            <button type="submit" name="clearCart" class="btn btn-link">Vider le panier</button>
+            <button type="submit" name="clearCart" class="btn btn-link clearCart">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Vider le panier
+            </button>
         </form>
     </div>
     <?php } ?>

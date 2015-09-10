@@ -71,6 +71,9 @@ span.titre {
 .qty {
     text-align: right;
 }
+#cart button.clearCart{
+    color: #d9534f
+}
 
 
 
