@@ -2,7 +2,7 @@
 require_once 'data/_data.php';
 require_once 'data/_signup.php';
 
-session_start();
+
 ?>
 
 <!DOCTYPE html>
