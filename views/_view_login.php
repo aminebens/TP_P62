@@ -29,8 +29,14 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
     }
 }
 
+//recuperation du nom de la page dans l'url
+$filename = $_SERVER['PHP_SELF'];
+$filename_pos= strrpos($filename , '/');
+$filename = substr($filename , $filename_pos + 1);
+//var_dump($filename);
 ?>
-<!-- Formulaire de  Login -->
+
+    <!-- Formulaire de  Login -->
 <ul class="nav navbar-nav navbar-right">
     <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart lg"></span> (<?php echo $_SESSION[SESS_CART_TOTAL]; ?>)</a></li>
 </ul>
@@ -42,7 +48,7 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
         <span class="glyphicon glyphicon-log-out lg" aria-hidden="true"></span>
     </button>
 </form>
-<?php } else { ?>
+<?php } elseif($filename !== 'signup.php') { ?>
 <ul class="nav navbar-nav navbar-right">
     <li><a href="signup.php">S'inscrire</a></li>
 </ul>
@@ -57,4 +63,6 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
             data-container="body" data-toggle="popover" data-placement="bottom" data-content="<?php echo $login_message; ?>"
             data-original-title="" title="">Connexion</button>
 </form>
+<?php }else{ ?>
+<h3 class="msg-inscription">Inscrivez vous maintenant!</h3>
 <?php } ?>

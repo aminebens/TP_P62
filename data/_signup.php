@@ -1,6 +1,6 @@
 <?php
 
-// TODO : renforcer plus le form ac reg exp et pousser le nouvel user ds la BDD
+
 define('SUBMIT', 'submit');
 define('ERR_MSG', 'err_msg');
 define('VAL_MSG', 'val_msg');
@@ -127,6 +127,8 @@ if (array_key_exists(SUBMIT, $_POST)) {
         $add_id =  add_address($street_num, $street, $city, $province, $postal_code);
        // var_dump($add_id);
         add_user($add_id, $first_name, $last_name, $email, $pass);
+        $_SESSION[FIRST_NAME] = $first_name;
+        $_SESSION[U_ID] =  add_user($add_id, $first_name, $last_name, $email, $pass);
         header('Location: index.php');
     }
 }
