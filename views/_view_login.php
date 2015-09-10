@@ -15,6 +15,7 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
     // Authentification
     if ($user_data = authenticate_user($_POST[EMAIL], $_POST[PASS])) {
         $_SESSION[FIRST_NAME] = $user_data[FIRST_NAME];
+        $_SESSION[U_ID] = $user_data[U_ID];
         $login_message = 'Bonjour, ' . $user_data[FIRST_NAME];
     } else {
         // echec
