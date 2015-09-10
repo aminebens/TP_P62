@@ -7,13 +7,13 @@ define('MAX_NOTE', 5);
 define('PAGE_INDEX', 'index.php');
 define('P_GENRES', 'genres');
 
-// Modal login
+// login
 define('LOGIN', 'login');
 define('LOGOUT', 'logout');
 define('EMAIL', 'email');
 define('PASS', 'pass');
 
-//Modal sign
+// sign up
 define('SIGN_UP' , 'sign_up');
 define('FIRST_NAME', 'first_name');
 define('LAST_NAME', 'last_name');
@@ -49,5 +49,13 @@ define('ARTIST', 'Artist');
 define('GENRE_ID', 'genre_id');
 define('GENRE_NAME', 'name');
 
+// publishers TB columns
+define('PUBLISHER_ID', 'publisher_id');
+define('PUBLISHER_NAME', 'name');
+
 // Shopping cart
 define('ADD_TO_CART' , 'add');
+define('SESS_CART', 'sess_cart');
+define('SESS_CART_TOTAL', 'sess_cart_total');
+define('P_ADD_TO_CART', 'adToCart');
+define('P_REMOVE_FROM_CART', 'rvFromCart');

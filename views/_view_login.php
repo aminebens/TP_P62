@@ -35,8 +35,9 @@ if ( array_key_exists('submit_login', $_POST) && array_key_exists(EMAIL, $_POST)
 </ul>
 
 <?php if(array_key_exists(FIRST_NAME, $_SESSION)) { ?>
-<form class="navbar-form navbar-right" method="post">
-    <button type="submit" name="submit_logout" class="btn btn-success">Déconnexion
+<form class="navbar-form navbar-right" method="post" action="index.php">
+    <label><?php echo $login_message; ?></label>
+    <button type="submit" name="submit_logout" class="btn btn-link" title="Déconnexion">
         <span class="glyphicon glyphicon-log-out lg" aria-hidden="true"></span>
     </button>
 </form>

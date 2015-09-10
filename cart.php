@@ -2,55 +2,56 @@
 require_once 'data/_data.php';
 require_once 'data/_comics.php';
 require_once 'data/_authors.php';
-
-define('SESS_CART', 'cart');
+require_once 'data/_publishers.php';
 
 session_start();
 
 $msg = '';
 $isCartEmpty = false;
-$cart = array();
-
-function iterate_session($session, $id) {
-    $cart = $session;
-    foreach ($cart as $k => $items) {
-        foreach ($items as $item_id => $quantity) {
-            if ($id == $item_id) {
-                $old_qty = $quantity;
-                return $k;
-            }
-        }
-    }
-    return false;
-}
 
 // Veriefie si une session du panier exist, sinon en crée une
 if ( !array_key_exists(SESS_CART, $_SESSION) ) {
     $_SESSION[SESS_CART] = array();
+    $_SESSION[SESS_CART_TOTAL] = 0;
 }
 
 // Ajoute un produit au panier
-if ( array_key_exists('addToCart', $_GET) ) {
+if ( array_key_exists(P_ADD_TO_CART, $_GET) ) {
 
-    $item_id = $_GET['addToCart'];
+    $item_id = $_GET[P_ADD_TO_CART];
 
     if (array_key_exists('item_qty', $_GET)) {
         $item_qty = $_GET['item_qty'];
-        if (iterate_session($_SESSION[SESS_CART], $item_id, $item_qty) !== false) {
-            $k = iterate_session($_SESSION[SESS_CART], $item_id);
-            unset($_SESSION[SESS_CART][$k]);
+        if(array_key_exists($item_id, $_SESSION[SESS_CART])) {
+            $_SESSION[SESS_CART_TOTAL] -= $_SESSION[SESS_CART][$item_id];
+            unset($_SESSION[SESS_CART][$item_id]);
         }
-        $cart[$item_id] = $item_qty;
-        array_push($_SESSION[SESS_CART], $cart);
+        $_SESSION[SESS_CART][$item_id] = $item_qty;
+        $_SESSION[SESS_CART_TOTAL] += $item_qty;
         header('Location: cart.php');
         exit();
         //var_dump($_SESSION[SESS_CART]);
     }
 }
 
+// Supprimer un produit du panier
+if ( array_key_exists(P_REMOVE_FROM_CART, $_GET) ) {
+
+    $item_id = $_GET[P_REMOVE_FROM_CART];
+
+    if(array_key_exists($item_id, $_SESSION[SESS_CART])) {
+        $item_qty = $_SESSION[SESS_CART][$item_id];
+        unset($_SESSION[SESS_CART][$item_id]);
+        $_SESSION[SESS_CART_TOTAL] -= $item_qty;
+    }
+    header('Location: cart.php');
+    exit();
+}
+
 // Vider le panier
 if ( array_key_exists('clearCart', $_GET) ) {
     unset($_SESSION[SESS_CART]);
+    $_SESSION[SESS_CART_TOTAL] = 0;
     header('Location: cart.php');
     exit();
 }
@@ -80,7 +81,7 @@ if ( $_SESSION[SESS_CART] == null || array_key_exists('clearCart', $_GET) ) {
         <?php if ($isCartEmpty) {  ?>
         <div id="cart_empty">
             <p><?php echo $msg; ?></p>
-            <p>Votre panier est là pour vous servir. Donnez-lui un but : remplissez-le avec des BDs.,</p>
+            <p>Votre panier est la  pour vous servir. Donnez-lui un but : remplissez-le avec des BDs.,</p>
         </div>
         <?php } else { ?>
         <table id="cart_table" class="table">
@@ -89,25 +90,25 @@ if ( $_SESSION[SESS_CART] == null || array_key_exists('clearCart', $_GET) ) {
                 <th></th>
                 <th>Prix/Unité</th>
                 <th class="qty">Quantité</th>
+                <th></th>
             </tr>
             <?php
-            $cart = $_SESSION[SESS_CART];
+            $items = $_SESSION[SESS_CART];
             //var_dump($cart);
             $total = 0;
-            $nb_articles = 0;
-            foreach ($cart as $items) {
+            $nb_articles = $_SESSION[SESS_CART_TOTAL];
+            foreach ($items as $item_id => $qty) {
                 echo '<tr>';
-                foreach ($items as $item_id => $qty) {
-                    $item = get_item_details($item_id);
-                    $authors = get_authors($item[AUTHOR_ID]);
-                    echo '<td><img src="', $item[ITEM_COVER], '" alt="', $item[ITEM_TITLE] ,'"/></td>';
-                    echo '<td><a href="comic_detail.php?',ITEM_ID,'=',$item[ITEM_ID], '"><span class="titre">', $item[ITEM_TITLE], '</span></a>',
-                    ' de ', $authors[0][WRITER], '<div>', 'TODO: publisher', '</div></td>';
-                    echo '<td>', $item[ITEM_PRICE], '</td>';
-                    echo '<td class="qty">', $qty, '</td>';
-                    $nb_articles += $qty;
-                    $total += $item[ITEM_PRICE] * $qty;
-                }
+                $item = get_item_details($item_id);
+                $authors = get_authors($item[AUTHOR_ID]);
+                $publishers = get_publishers($item[PUBLISHER_ID]);
+                echo '<td><img src="', $item[ITEM_COVER], '" alt="', $item[ITEM_TITLE] ,'" onerror="this.src=\'images/couv/place_holder.png\'" /></td>';
+                echo '<td><a href="comic_detail.php?',ITEM_ID,'=',$item[ITEM_ID], '"><span class="titre">', $item[ITEM_TITLE], '</span></a>',
+                ' de ', $authors[0][WRITER], '<div>', $publishers[0][PUBLISHER_NAME], '</div></td>';
+                echo '<td>', $item[ITEM_PRICE], '</td>';
+                echo '<td class="qty">', $qty, '</td>';
+                $total += $item[ITEM_PRICE] * $qty;
+                echo '<td><a href="?', P_REMOVE_FROM_CART,'=', $item_id,'" >Supprimer</a></td>';
                 echo '</tr>';
             }
             ?>
