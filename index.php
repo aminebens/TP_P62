@@ -3,9 +3,7 @@ require_once 'data/_data.php';
 require_once 'data/_categories.php';
 require_once 'data/_comics.php';
 
-
-
-
+session_start();
 
 define('CAT_NAME', 'name');
 define('P_CAT_ID', 'category_id');

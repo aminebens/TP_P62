@@ -9,7 +9,7 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
 // Cart
 define('ADD_CART' , 'add');
 define('SESS_CART_TOTAL', 'sess_cart_total');
-session_start();
+
 if ( !array_key_exists(SESS_CART_TOTAL, $_SESSION) ) {
     $_SESSION[SESS_CART_TOTAL] = 0;
 }
