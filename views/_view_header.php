@@ -46,5 +46,3 @@ if ( array_key_exists('action', $_GET) ) {
         </div><!-- /.container-fluid -->
     </nav>
 </header>
-
-

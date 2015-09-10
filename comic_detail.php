@@ -51,11 +51,13 @@ $authors = get_authors($item[AUTHOR_ID]);
         </p>
         <p>Synopsis: <?php echo $item[ITEM_DESC] ?></p>
         <p>Prix: <?php echo '$',$item[ITEM_PRICE] ?></p>
-        <p>
-            <button type="button" class="btn btn-default btn-md">
+        <form class="form-inline" action="cart.php" method="get">
+            <button type="submit" name="addToCart" class="btn btn-link" value="<?php echo $item[ITEM_ID]; ?>">
                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Acheter
             </button>
-        </p>
+            <label for="qty"></label>
+            <input id="qty" class="form-control input-xs" type="text" name="item_qty" value="1" />
+        </form>
     </div>
 </div>
 <?php require_once('views/_view_footer.php') ?>
