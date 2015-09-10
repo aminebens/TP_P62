@@ -7,11 +7,16 @@ define('SESS_CART', 'cart');
 
 session_start();
 
+$msg = '';
+$isCartEmpty = false;
 $cart = array();
-if ( ! array_key_exists(SESS_CART, $_SESSION)) {
+
+// Veriefie si une session du panier exist, sinon en crée une
+if ( !array_key_exists(SESS_CART, $_SESSION) ) {
     $_SESSION[SESS_CART] = array();
 }
 
+// Ajoute un produit au panier
 if ( array_key_exists('addToCart', $_GET) ) {
 
     $item_id = $_GET['addToCart'];
@@ -20,8 +25,23 @@ if ( array_key_exists('addToCart', $_GET) ) {
         $item_qty = $_GET['item_qty'];
         $cart[$item_id] = $item_qty;
         array_push($_SESSION[SESS_CART], $cart);
+        header('Location: cart.php');
+        exit();
         //var_dump($_SESSION[SESS_CART]);
     }
+}
+
+// Vider le panier
+if ( array_key_exists('clearCart', $_GET) ) {
+    unset($_SESSION[SESS_CART]);
+    header('Location: cart.php');
+    exit();
+}
+
+// Si le panier est vide affiche un message
+if ( $_SESSION[SESS_CART] == null || array_key_exists('clearCart', $_GET) ) {
+    $msg = 'Votre panier est vide pour le moment.';
+    $isCartEmpty = true;
 }
 
 ?>
@@ -40,12 +60,18 @@ if ( array_key_exists('addToCart', $_GET) ) {
 <?php require_once('views/_view_header.php') ?>
 <div id="cart" class="row">
     <div class="col-md-10">
+        <?php if ($isCartEmpty) {  ?>
+        <div id="cart_empty">
+            <p><?php echo $msg; ?></p>
+            <p>Votre panier est là pour vous servir. Donnez-lui un but : remplissez-le avec des BDs.,</p>
+        </div>
+        <?php } else { ?>
         <table id="cart_table" class="table">
             <tr>
                 <th>Votre panier</th>
                 <th></th>
                 <th>Prix</th>
-                <th>Quantité</th>
+                <th class="qty">Quantité</th>
             </tr>
             <?php
             $cart = $_SESSION[SESS_CART];
@@ -61,7 +87,7 @@ if ( array_key_exists('addToCart', $_GET) ) {
                     echo '<td><a href="comic_detail.php?',ITEM_ID,'=',$item[ITEM_ID], '"><span class="titre">', $item[ITEM_TITLE], '</span></a>',
                     ' de ', $authors[0][WRITER], '<div>', 'publisher', '</div></td>';
                     echo '<td>', $item[ITEM_PRICE], '</td>';
-                    echo '<td>', $qty, '</td>';
+                    echo '<td class="qty">', $qty, '</td>';
                     $nb_articles += $qty;
                     $total += $item[ITEM_PRICE] * $qty;
                 }
@@ -69,8 +95,14 @@ if ( array_key_exists('addToCart', $_GET) ) {
             }
             ?>
         </table>
-        <p>Sous-total (<?php echo $nb_articles; ?> articles) : $<?php echo $total; ?></p>
+        <p>Sous-total (<?php echo $nb_articles; echo ($nb_articles>1) ? ' articles)':' article)' ?> : $<?php echo $total; ?></p>
     </div>
+    <div class="col-md-2">
+        <form class="form-inline" action="cart.php">
+            <button type="submit" name="clearCart" class="btn btn-link">Vider le panier</button>
+        </form>
+    </div>
+    <?php } ?>
 </div>
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->

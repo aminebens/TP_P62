@@ -44,23 +44,32 @@ div.thumbnail{
     border-top: none;
     border-bottom: 1px solid rgb(232, 232, 232);
 }
-
 #cart img {
     width: 64px;
 }
-
 #cart p {
     text-align: right;
     font-size: 1.2em;
 }
-
+#cart p:first-child {
+    font-size: 3em;
+}
+#cart_empty p {
+    text-align: left;
+}
 span.titre {
     font-weight: bold;
     font-size: 1.2em;
 }
-
 #cart {
     margin: 0;
+}
+#qty {
+    width: 50px;
+    text-align: center;
+}
+.qty {
+    text-align: right;
 }
 
 
