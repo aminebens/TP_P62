@@ -15,6 +15,9 @@ if (array_key_exists('submit_logout', $_POST)) {
     if (array_key_exists(FIRST_NAME, $_SESSION)) {
         unset($_SESSION[FIRST_NAME]);
     }
+    if (array_key_exists(U_ID, $_SESSION)) {
+        unset($_SESSION[U_ID]);
+    }
 }
 
 if (array_key_exists(P_CAT_ID, $_GET)) {
@@ -68,13 +71,14 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
     <?php foreach ($comics as $comic) { ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
-                <img src="<?php echo $comic[ITEM_COVER] ?>" alt="<?php echo $comic[ITEM_TITLE] ?>" onerror="this.src='images/couv/place_holder.png'" />
+                <a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>">
+                    <img src="<?php echo $comic[ITEM_COVER] ?>" alt="<?php echo $comic[ITEM_TITLE] ?>" onerror="this.src='images/couv/place_holder.png'" />
+                </a>
                 <div class="caption">
-                    <h5><?php echo $comic[ITEM_TITLE] ?></h5>
+                    <h5><a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>">
+                        <?php echo $comic[ITEM_TITLE] ?></a>
+                    </h5>
                     <p>Prix: <?php echo '$', $comic[ITEM_PRICE] ?></p>
-                    <p><a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>" class="btn btn-primary" role="button">Detail</a>
-                    <a href="cart.php?<?php echo P_ADD_TO_CART.'='.$comic[ITEM_ID].'&'.'item_qty=1'; ?>"
-                       class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span></a></p>
                 </div>
             </div>
         </div>

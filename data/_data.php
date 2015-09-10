@@ -14,6 +14,7 @@ define('EMAIL', 'email');
 define('PASS', 'pass');
 
 // sign up
+define('U_ID', 'user_id');
 define('SIGN_UP' , 'sign_up');
 define('FIRST_NAME', 'first_name');
 define('LAST_NAME', 'last_name');

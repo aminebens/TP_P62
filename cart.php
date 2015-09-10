@@ -117,8 +117,13 @@ if ( $_SESSION[SESS_CART] == null || array_key_exists('clearCart', $_GET) ) {
     </div>
     <div class="col-md-2">
         <form class="form-inline" action="cart.php">
-            <button type="submit" name="clearCart" class="btn btn-link clearCart">
+            <button type="submit" name="clearCart" class="btn btn-link red">
                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Vider le panier
+            </button>
+        </form>
+        <form class="form-inline" action="checkout.php" method="post">
+            <button type="submit" name="checkout" class="btn btn-link green">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Checkout
             </button>
         </form>
     </div>
