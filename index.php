@@ -30,7 +30,8 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
 
 //var_dump($categories);
 //var_dump($genres);
-
+//var_dump($_SESSION);
+//var_dump($_SERVER);
 ?>
 <!DOCTYPE html>
 <html lang="en">

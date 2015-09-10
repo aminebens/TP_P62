@@ -127,5 +127,9 @@ div.juxtapose div.form-group p{
     border-color: #5cb85c;
 }
 
-
-
+header {
+    text-align: center;
+}
+header h3 {
+    margin-top: 15px;
+}
