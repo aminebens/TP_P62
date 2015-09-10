@@ -1,4 +1,14 @@
-.thumbnail img {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    border: 0;
+    border-radius: 0;
+}
+
+.thumbnail a img {
     width: 200px;
     height: 300px;
 }
