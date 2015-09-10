@@ -11,6 +11,12 @@ define('P_CAT_ID', 'category_id');
 $categories = get_categories();
 $active = '';
 
+if (array_key_exists('submit_logout', $_POST)) {
+    if (array_key_exists(FIRST_NAME, $_SESSION)) {
+        unset($_SESSION[FIRST_NAME]);
+    }
+}
+
 if (array_key_exists(P_CAT_ID, $_GET)) {
     $comics = get_comics($_GET[P_CAT_ID]);
 } elseif (array_key_exists(P_GENRES, $_GET)) {
@@ -67,7 +73,7 @@ if (array_key_exists(P_CAT_ID, $_GET)) {
                     <h5><?php echo $comic[ITEM_TITLE] ?></h5>
                     <p>Prix: <?php echo '$', $comic[ITEM_PRICE] ?></p>
                     <p><a href="comic_detail.php?<?php echo ITEM_ID.'='.$comic[ITEM_ID] ?>" class="btn btn-primary" role="button">Detail</a>
-                    <a href="?<?php echo 'action'.'='.ADD_CART.'&'.ITEM_ID.'='.$comic[ITEM_ID] ?>"
+                    <a href="cart.php?<?php echo P_ADD_TO_CART.'='.$comic[ITEM_ID].'&'.'item_qty=1'; ?>"
                        class="btn btn-default" role="button"><span class="glyphicon glyphicon-shopping-cart lg" aria-hidden="true"></span></a></p>
                 </div>
             </div>
