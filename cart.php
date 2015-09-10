@@ -17,7 +17,7 @@ function iterate_session($session, $id) {
         foreach ($items as $item_id => $quantity) {
             if ($id == $item_id) {
                 $old_qty = $quantity;
-                return array($k, $old_qty);
+                return $k;
             }
         }
     }
@@ -37,9 +37,8 @@ if ( array_key_exists('addToCart', $_GET) ) {
     if (array_key_exists('item_qty', $_GET)) {
         $item_qty = $_GET['item_qty'];
         if (iterate_session($_SESSION[SESS_CART], $item_id, $item_qty) !== false) {
-            $data = iterate_session($_SESSION[SESS_CART], $item_id);
-            unset($_SESSION[SESS_CART][$data[0]]);
-            $item_qty += $data[1];
+            $k = iterate_session($_SESSION[SESS_CART], $item_id);
+            unset($_SESSION[SESS_CART][$k]);
         }
         $cart[$item_id] = $item_qty;
         array_push($_SESSION[SESS_CART], $cart);
@@ -88,7 +87,7 @@ if ( $_SESSION[SESS_CART] == null || array_key_exists('clearCart', $_GET) ) {
             <tr>
                 <th>Votre panier</th>
                 <th></th>
-                <th>Prix</th>
+                <th>Prix/Unité</th>
                 <th class="qty">Quantité</th>
             </tr>
             <?php
