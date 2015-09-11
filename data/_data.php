@@ -1,7 +1,7 @@
 <?php
 define('SITE_NAME', 'ComicsDB');
 define('IMG_PLACE_HOLDER', 'images/couv/place_holder.png');
-define('MAX_NOTE', 5);
+define('MAX_NOTE', 10);
 
 // Paramétres pour get
 define('PAGE_INDEX', 'index.php');

@@ -5,13 +5,13 @@ require_once 'data/_user.php';
 require_once 'data/_comics.php';
 
 session_start();
-var_dump($_POST);
+
 
 $msg = '';
 
 if ( array_key_exists('checkout', $_POST) && array_key_exists(SESS_CART, $_SESSION) ) {
     if ( array_key_exists(U_ID, $_SESSION) ) {
-        var_dump($_SESSION[U_ID]);
+        $msg = 'Merci de vos achats';
     } else {
         header('Location: signup.php');
         exit();
@@ -33,7 +33,7 @@ if ( array_key_exists('checkout', $_POST) && array_key_exists(SESS_CART, $_SESSI
 <body>
 <?php require_once('views/_view_header.php') ?>
 <div class="container-fluid">
-
+    <?php echo $msg; ?>
 </div>
 <?php require_once('views/_view_footer.php') ?>
 <!-- Latest compiled and minified JavaScript -->
