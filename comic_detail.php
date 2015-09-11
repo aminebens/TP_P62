@@ -57,7 +57,7 @@ $publishers = get_publishers($item[PUBLISHER_ID]);
         <form class="form" action="cart.php" method="get">
             <div class="form-group">
                 <label for="qty">Quantité:</label>
-                <input id="qty" class="form-control input-xs" type="text" name="item_qty" value="1" />
+                <input id="qty" class="form-control input-xs" name="item_qty" type="number" min="1" max="100" value="1" />
             </div>
             <div class="form-group">
                 <button id="cart_detail" type="submit" name="<?php echo P_ADD_TO_CART ?>" class="btn btn-link" value="<?php echo $item[ITEM_ID]; ?>">
