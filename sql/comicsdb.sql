@@ -6,7 +6,7 @@
 -- Generation Time: Sep 06, 2015 at 05:54 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
-
+USE aminenathan_comicsdb;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `addresses` (
   `postal_code` char(7) NOT NULL,
   PRIMARY KEY (`address_id`),
   KEY `postal_code` (`postal_code`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `addresses`
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `Writer` varchar(45) NOT NULL,
   `Artist` varchar(45) NOT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `authors`
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`category_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `categories`
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `comics` (
   KEY `publisher_id` (`publisher_id`),
   KEY `category_id` (`category_id`),
   KEY `author_id` (`author_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `comics`
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `comics_genres` (
   `genre_id` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`comic_id`,`genre_id`),
   KEY `genre_id` (`genre_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `comics_genres`
@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `genres` (
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`genre_id`),
   KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `genres`
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `logins` (
   `user_id` mediumint(8) unsigned NOT NULL,
   `login_date` datetime NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -240,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`order_id`),
   KEY `quantity` (`quantity`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -252,7 +252,7 @@ CREATE TABLE IF NOT EXISTS `publishers` (
   `publisher_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`publisher_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `publishers`
@@ -298,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `transaction_date` datetime NOT NULL,
   PRIMARY KEY (`transaction_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `email` (`email`),
   KEY `login` (`pass`,`email`),
   KEY `address_id` (`address_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `users`
