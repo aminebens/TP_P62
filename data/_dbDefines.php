@@ -15,3 +15,10 @@ define('TB_GENRES', 'genres');
 define('TB_USERS', 'users');
 define('TB_ADDRESSES', 'addresses');
 define('TB_COMICS_GENRES', 'comics_genres');
+
+// isiproject.com
+//define('DB_HOST', 'panel.projetisi.com');
+//define('DB_USER', 'canacomcsadmin');
+//define('DB_PASS', 'y7epu3era');
+//define('DB_NAME', 'aminenathan_comicsdb');
+//define('DB_PORT', 3306);
