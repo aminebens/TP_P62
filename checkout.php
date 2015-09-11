@@ -13,7 +13,7 @@ if ( array_key_exists('checkout', $_POST) && array_key_exists(SESS_CART, $_SESSI
     if ( array_key_exists(U_ID, $_SESSION) ) {
         var_dump($_SESSION[U_ID]);
     } else {
-        header('Location: signUp.php');
+        header('Location: signup.php');
         exit();
     }
 }

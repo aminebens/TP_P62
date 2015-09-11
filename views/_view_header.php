@@ -12,12 +12,6 @@ if (array_key_exists(NAV_SEARCH, $_GET)) {
 if ( !array_key_exists(SESS_CART_TOTAL, $_SESSION) ) {
     $_SESSION[SESS_CART_TOTAL] = 0;
 }
-
-if ( array_key_exists('action', $_GET) ) {
-    if ( ADD_CART == $_GET['action'] ) {
-        $_SESSION[SESS_CART_TOTAL]++;
-    }
-}
 ?>
 <!-- Affiche le header des pages -->
 <header>

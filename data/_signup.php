@@ -7,6 +7,7 @@ define('VAL_MSG', 'val_msg');
 define('VALUE', 'value');
 define('IS_VALID', 'is_valid');
 
+
 $validation_signup = array(
     FIRST_NAME => array(IS_VALID => false, VALUE => null, ERR_MSG => ''),
     LAST_NAME => array(IS_VALID => false, VALUE => null, ERR_MSG => ''),
@@ -19,11 +20,14 @@ $validation_signup = array(
     PROVINCE => array(IS_VALID => false, VALUE => null, ERR_MSG => ''),
     ZIP => array(IS_VALID => false, VALUE => null, ERR_MSG => ''),
     DOB => array(IS_VALID => false, VALUE => null, ERR_MSG => ''),
-
 );
+
+
+
 
 // Validation de formalaire de connexion
 if (array_key_exists(SUBMIT, $_POST)) {
+
 
 // Validation du prenom
     $validation_signup[FIRST_NAME][VALUE] = trim(filter_input(INPUT_POST, FIRST_NAME, FILTER_SANITIZE_STRING));
@@ -123,6 +127,8 @@ if (array_key_exists(SUBMIT, $_POST)) {
         $add_id =  add_address($street_num, $street, $city, $province, $postal_code);
        // var_dump($add_id);
         add_user($add_id, $first_name, $last_name, $email, $pass);
+        $_SESSION[FIRST_NAME] = $first_name;
+        $_SESSION[U_ID] =  add_user($add_id, $first_name, $last_name, $email, $pass);
         header('Location: index.php');
     }
 }

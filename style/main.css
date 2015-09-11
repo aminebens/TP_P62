@@ -81,15 +81,9 @@ span.titre {
 .qty {
     text-align: right;
 }
-#cart button.red{
-    color: #d9534f
-}
+
 #cart button.green{
     color: #5cb85c;
-}
-
-#cart_detail {
-    padding-left: 0;
 }
 
 /* form inscription*/
@@ -131,5 +125,14 @@ div.juxtapose div.form-group p{
     border-color: #5cb85c;
 }
 
+header {
+    text-align: center;
+}
+header h3 {
+    margin-top: 15px;
+}
 
-
+.navbar-default .navbar-nav>li>#errAuth:hover, .navbar-default .navbar-nav>li>#errAuth:link,
+.navbar-default .navbar-nav>li>#errAuth:visited, #cart button.red, .red {
+    color: #d9534f;
+}
