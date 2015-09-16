@@ -8,6 +8,11 @@ if (!array_key_exists('admin', $_SESSION)) {
     exit();
 }
 
+$view = 'dashboard';
+if (array_key_exists('view', $_GET)) {
+    $view = $_GET['view'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +34,16 @@ if (!array_key_exists('admin', $_SESSION)) {
 <!-- Main admin content -->
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Dashboard</h1>
-<!--  Affiche la list des auteurs  -->
-    <?php require_once('views/_view_authors.php'); ?>
+<!--  Affiche les views  -->
+    <?php
+    switch ($view) {
+        case 'authors': require_once('views/_view_authors.php'); break;
+//        case 'publishers': require_once('views/_view_publishers.php'); break;
+//        case 'comics': require_once('views/_view_comics.php'); break;
+//        case 'users': require_once('views/_view_users.php'); break;
+        default: require_once('views/_view_authors.php'); break;
+    }
+    ?>
 </div>
 
 <!-- Latest compiled and minified JavaScript -->
