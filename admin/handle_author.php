@@ -91,6 +91,7 @@ if (array_key_exists('create_submit', $_POST)) {
 
 <!-- Main admin content -->
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
 <?php if(!$isFormValid) { ?>
     <div class="alert alert-danger" role="alert">
     <?php foreach ($valid_authors as $fields) { ?>
@@ -122,6 +123,7 @@ if (array_key_exists('create_submit', $_POST)) {
                value="<?php echo (array_key_exists('id', $_GET)) ? $authors[0][ARTIST] : '' ?>" />
     </div>
     <button class="btn btn-warning" type="submit" name="edit_submit">Modifier</button>
+    <button class="btn btn-default" type="submit" name="close_submit">Annuler</button>
 </form>
 <?php } elseif ('add' == $action) { ?>
     <h2 class="sub-header">Auteurs - Nouveaux</h2>
@@ -137,6 +139,7 @@ if (array_key_exists('create_submit', $_POST)) {
                    value="<?php echo (array_key_exists(ARTIST, $_POST)) ? $_POST[ARTIST] : '' ?>" />
         </div>
         <button class="btn btn-primary" type="submit" name="create_submit">Ajouter</button>
+        <button class="btn btn-default" type="submit" name="close_submit">Annuler</button>
     </form>
 <?php } elseif ('delete' == $action) { $authors = get_authors($_GET['id']); ?>
     <h2 class="sub-header">Auteurs - Supprimer</h2>
