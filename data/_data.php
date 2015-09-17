@@ -60,3 +60,10 @@ define('SESS_CART', 'sess_cart');
 define('SESS_CART_TOTAL', 'sess_cart_total');
 define('P_ADD_TO_CART', 'adToCart');
 define('P_REMOVE_FROM_CART', 'rvFromCart');
+
+// CRUD actions
+define('ID', 'id');
+define('ACTION', 'action');
+define('ADD', 'add');
+define('EDIT', 'edit');
+define('DELETE', 'delete');
