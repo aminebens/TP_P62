@@ -54,6 +54,10 @@ define('GENRE_NAME', 'name');
 define('PUBLISHER_ID', 'publisher_id');
 define('PUBLISHER_NAME', 'name');
 
+// categories TB columns
+define('CAT_ID', 'category_id');
+define('CAT_NAME', 'name');
+
 // Shopping cart
 define('ADD_TO_CART' , 'add');
 define('SESS_CART', 'sess_cart');

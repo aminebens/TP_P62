@@ -32,13 +32,13 @@ if (array_key_exists('view', $_GET)) {
 <?php require_once('views/_view_sidebar.php'); ?>
 
 <!-- Main admin content -->
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-11 col-md-offset-1 main">
 <!--  Affiche les views  -->
     <?php
     switch ($view) {
         case 'authors': require_once('views/_view_authors.php'); break;
         case 'publishers': require_once('views/_view_publishers.php'); break;
-//        case 'comics': require_once('views/_view_comics.php'); break;
+        case 'comics': require_once('views/_view_comics.php'); break;
 //        case 'users': require_once('views/_view_users.php'); break;
         default: echo '<h1 class="page-header">Dashboard</h1>'; break;
     }

@@ -5,7 +5,6 @@ require_once 'data/_comics.php';
 
 session_start();
 
-define('CAT_NAME', 'name');
 define('P_CAT_ID', 'category_id');
 
 $categories = get_categories();
